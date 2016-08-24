@@ -1,0 +1,59 @@
+runtime bundle/vim-pathogen/autoload/pathogen.vim
+
+execute pathogen#infect()
+
+syntax enable
+set background=dark
+let g:solarized_termcolors=256
+"colorscheme aqua
+colorscheme solarized
+
+"filetype plugin indent on
+filetype indent off
+
+set nowrap
+set number
+set list
+set cursorline
+set incsearch
+set hlsearch
+set relativenumber
+set fileencoding=utf-8
+set ruler
+set scrolloff=2
+
+" don't expand tabs when makefile
+let _curfile = expand("%:t")
+if _curfile =~ "Makefile" || _curfile =~ "makefile" || _curfile =~ ".*\.mk"
+  set noexpandtab
+else
+  set expandtab
+  set tabstop=2
+  set shiftwidth=2
+endif
+
+" fixes the delete key in macbook pro osx
+set backspace=indent,eol,start
+fixdel
+
+" copied from vim-sensible
+if &listchars ==# 'eol:$'
+  set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
+  if !has('win32') && (&termencoding ==# 'utf-8' || &encoding ==# 'utf-8')
+    let &listchars = "tab:\u21e5 ,trail:\u2423,extends:\u21c9,precedes:\u21c7,nbsp:\u00b7"
+  endif
+endif
+
+" have vim jump to the last position when reopening a file
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
+
+let g:syntastic_check_on_open=1
+let g:syntastic_check_on_wq=0
+" for ruby
+let g:syntastic_ruby_mri_exec='~/.rbenv/shims/ruby'
+let g:syntastic_ruby_checkers=['rubocop']
+" for c++ clang
+let g:syntastic_cpp_compiler='clang++'
+let g:syntastic_cpp_compiler_options='--std=c++11 --stdlib=libc++ -Weverything -Wno-c++98-compat -Wno-c++98-compat-pedantic'

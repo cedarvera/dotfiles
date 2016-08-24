@@ -1,0 +1,12 @@
+[submodule "home/vim/bundle/syntastic"]
+	path = home/vim/bundle/syntastic
+	url = git://github.com/scrooloose/syntastic.git
+[submodule "home/vim/bundle/vim-colorschemes"]
+	path = home/vim/bundle/vim-colorschemes
+	url = git://github.com/flazz/vim-colorschemes.git
+[submodule "home/vim/bundle/vim-better-whitespace"]
+	path = home/vim/bundle/vim-better-whitespace
+	url = git://github.com/ntpeters/vim-better-whitespace.git
+[submodule "home/vim/bundle/vim-pathogen"]
+	path = home/vim/bundle/vim-pathogen
+	url = git://github.com/tpope/vim-pathogen.git

@@ -1,0 +1,12 @@
+[commit]
+  gpgsign = true
+
+[alias]
+  st = status -b --short --untracked-files=no --column=nodense
+  list = log --all --decorate --oneline --graph origin/master~1..
+  list-all = log --all --decorate --oneline --graph
+  list-file-only = log --name-only --oneline
+  hist = log --pretty=\"format:%h %ad | %s%d [%an]\" --graph --date=short origin/master~1..
+  hist-all = log --pretty=\"format:%h %ad | %s%d [%an]\" --graph --date=short
+  sortdiff = !sh -c 'git diff "$@" | grep "^[+-]" | sort --key=1.2 | uniq -u -s1'
+  force-clean = clean -d -x -f
