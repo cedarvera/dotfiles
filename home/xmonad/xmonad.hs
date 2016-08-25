@@ -34,6 +34,7 @@ myStartupHook = do
   spawnOnce "unclutter"
   spawnOnce "dbus-launch nm-applet"
   spawnOnce "stalonetray"
+  spawnOnce "conky"
   spawnOnce "dunst"
 
 myTerminal :: String
@@ -75,10 +76,10 @@ myEventHook = ewmhDesktopsEventHook
 -- manage window --
 myManageHook = composeAll
   [ className =? "stalonetray" --> doIgnore
+  , className =? "conky"       --> doIgnore
   ]
 
 main = do
-  xmobarRight <- spawnPipe "xmobar"
   xmonad $ ewmh defaultConfig
     { startupHook        = myStartupHook
     , terminal           = myTerminal
