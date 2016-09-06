@@ -1,1 +1,18 @@
+# load x resources
+xrdb -load ~/.Xresources
+xsetroot -cursor_name left_ptr &
+
+# set the a background
+feh --bg-scale ~/background.jpg &
+
+# misc
+compton -b
+unclutter -root &
+conky &
+stalonetray &
+dunst &
+
+dbus-launch nm-applet &
+
+# run window manager with dbus
 exec ck-launch-session dbus-launch --sh-syntax --exit-with-session xmonad

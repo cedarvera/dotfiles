@@ -26,16 +26,8 @@ import qualified XMonad.StackSet as W
 import qualified Data.Map as M
 import System.IO
 
-myStartupHook :: X()
-myStartupHook = do
-  spawnOnce "xsetroot -cursor_name left_ptr"
-  spawnOnce "xrdb -load .Xresources"
-  spawnOnce "compton -b"
-  spawnOnce "unclutter"
-  spawnOnce "dbus-launch nm-applet"
-  spawnOnce "stalonetray"
-  spawnOnce "conky"
-  spawnOnce "dunst"
+--myStartupHook :: X()
+--myStartupHook = do
 
 myTerminal :: String
 myTerminal = "terminology"
@@ -49,6 +41,8 @@ myKeys conf@(XConfig { XMonad.modMask = modMask }) = M.fromList $
   , ((modMask, xK_r), toggleWS)
   , ((modMask, xK_b), sendMessage ToggleStruts)
   , ((modMask, xK_q), spawn "xmonad --recompile; xmonad --restart")
+  -- programs
+  , ((modMask .|. shiftMask, xK_f), spawn "firefox")
   ]
 
 -- screen border padding --
@@ -81,8 +75,7 @@ myManageHook = composeAll
 
 main = do
   xmonad $ ewmh defaultConfig
-    { startupHook        = myStartupHook
-    , terminal           = myTerminal
+    { terminal           = myTerminal
     , workspaces         = myWorkspaces
     , keys               = \c -> myKeys c `M.union` keys defaultConfig c
     , modMask            = mod4Mask
