@@ -1,8 +1,34 @@
-# Xft options (man fonts-conf)
+! Xft options (man fonts-conf)
+Xft.antialias: 1
+Xft.autohint:  0
 Xft.dpi:       96
-Xft.rgba:      rgb
-Xft.antialias: true
-Xft.hinting:   true
+Xft.hinting:   1
 Xft.hintstyle: hintfull
-Xft.autohint:  1
 Xft.lcdfilter: lcddefault
+Xft.rgba:      rgb
+
+! colors colors colors (16 bit)
+! black dark/light
+*color0:  #627484
+*color8:  #6986A0
+! red dark/light
+*color1:  #E49F9F
+*color9:  #E5BFBF
+! green dark/light
+*color2:  #91E380
+*color10: #AFE0A1
+! yellow dark/light
+*color3:  #EAE47C
+*color11: #F2FB9E
+! blue dark/light
+*color4:  #7CACD3
+*color12: #95ADD1
+! magenta dark/light
+*color5:  #DF9494
+*color13: #F2B0B0
+! cyan dark/light
+*color6:  #8CDBD8
+*color14: #B4F0F0
+! white dark/light
+*color7:  #E5E7EA
+*color15: #8CDBD8
