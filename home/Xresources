@@ -32,3 +32,6 @@ Xft.rgba:      rgb
 ! white dark/light
 *color7:  #E5E7EA
 *color15: #8CDBD8
+
+! dzen2 fonts
+dzen2.font: xft:Noto:size=14
