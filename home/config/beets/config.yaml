@@ -1,0 +1,44 @@
+directory: ~/music
+library: ~/music/library.db
+import:
+  move: yes
+  write: yes
+ui:
+  color: yes
+per_disc_numbering: yes
+paths:
+  default:
+    $albumartist - $year - $album%aunique{}/$disc-$track - $title
+  singleton:
+    singleton/$artist - $title
+  comp:
+    $album%aunique{} - $year/$disc-$track - $artist - $title
+  albumtype:soundtrack:
+    $album%aunique{} - $year/$disc-$track - $artist - $title
+match:
+  required: year
+plugins:
+  chroma
+  convert
+  duplicates
+  fetchart
+  fromfilename
+  importadded
+  missing
+  mbsync
+  scrub
+#  keyfinder
+#  discogs
+#  web
+importadded:
+  preserve_mtimes: yes
+convert:
+  never_convert_lossy_files: true
+  embed: true
+  paths:
+    default:
+      $artist - $album%aunique{} - $year/$disc-$track - $title
+  format: mp3
+  formats:
+    command: ffmpeg -i $source -f mp3 -q:a 0 $dest
+    extension: mp3
